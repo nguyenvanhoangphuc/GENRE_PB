@@ -12,7 +12,7 @@ import re
 
 import jsonlines
 import pandas
-from mgenre.utils import chunk_it, get_wikidata_ids
+from genre.utils import chunk_it, get_wikidata_ids
 from tqdm.auto import tqdm, trange
 
 if __name__ == "__main__":
@@ -54,17 +54,20 @@ if __name__ == "__main__":
 
     logging.basicConfig(level=logging.DEBUG)
 
-    filename = os.path.join(args.base_wikidata, "lang_title2wikidataID.pkl")
+    # filename = os.path.join(args.base_wikidata, "lang_title2wikidataID.pkl")
+    filename = os.path.join(args.base_wikidata, "lang_title2wikidataID-normalized_with_redirect.pkl")
     logging.info("Loading {}".format(filename))
     with open(filename, "rb") as f:
         lang_title2wikidataID = pickle.load(f)
 
-    filename = os.path.join(args.base_wikidata, "lang_redirect2title.pkl")
+    # filename = os.path.join(args.base_wikidata, "lang_redirect2title.pkl")
+    filename = os.path.join(args.base_wikidata, "wikidataID2lang_title-normalized_with_redirect.pkl")
     logging.info("Loading {}".format(filename))
     with open(filename, "rb") as f:
         lang_redirect2title = pickle.load(f)
 
-    filename = os.path.join(args.base_wikidata, "label_or_alias2wikidataID.pkl")
+    # filename = os.path.join(args.base_wikidata, "label_or_alias2wikidataID.pkl")
+    filename = os.path.join(args.base_wikidata, "mention2wikidataID_with_titles_label_alias_redirect.pkl")
     logging.info("Loading {}".format(filename))
     with open(filename, "rb") as f:
         label_or_alias2wikidataID = pickle.load(f)

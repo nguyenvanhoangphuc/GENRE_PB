@@ -71,3 +71,9 @@ notebook/.ipynb_checkpoints
 
 # Mac os x stuff
 .DS_Store
+
+
+GENRE/
+datasets/
+new_data/
+*/.git/

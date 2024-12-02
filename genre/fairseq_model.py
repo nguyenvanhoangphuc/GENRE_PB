@@ -29,6 +29,8 @@ class _GENREHubInterface:
         max_len_b=1024,
         **kwargs,
     ) -> List[str]:
+        print("vao _GENREHubInterface")
+        print("===="*20)
         if isinstance(sentences, str):
             return self.sample([sentences], beam=beam, verbose=verbose, **kwargs)[0]
         tokenized_sentences = [self.encode(sentence) for sentence in sentences]
@@ -51,7 +53,7 @@ class _GENREHubInterface:
         ]
 
         outputs = post_process_wikidata(
-            outputs, text_to_id=text_to_id, marginalize=marginalize
+            outputs, text_to_id=text_to_id, marginalize=marginalize, batched_hypos=batched_hypos, marginalize_lenpen=marginalize_lenpen,
         )
 
         return outputs
